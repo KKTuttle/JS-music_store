@@ -30,6 +30,7 @@ import { GenrePipe } from './genre.pipe';
 
   <edit-cd-details *ngIf='selectedCd' [cd]='selectedCd'
   (onSubmitEditCd)='editCdDetails($event.name, $event.artist, $event.price, $event.genre, selectedCd)'>
+  <!--has to include selectedCd.. so it updates that current selectedCd -->
   </edit-cd-details>
 
   <new-cd (onSubmitNewCd)='createCd($event.name, $event.artist, $event.price, $event.genre)'></new-cd>
@@ -56,6 +57,7 @@ export class CdListComponent {
       thisCd.artist = artist;
       thisCd.price = price;
       thisCd.genre = genre;
+  // has to add this: Cd in order to use it for that current selectedCd = thisCd.name
   }
 
   cdClicked(clickedCd: Cd) :void {
