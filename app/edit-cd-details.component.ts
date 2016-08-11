@@ -4,6 +4,7 @@ import {Cd} from './cd.model';
 @Component({
   selector: 'edit-cd-details',
   inputs: ['cd'],
+  outputs: ['onSubmitEditCd'],
   template:`
   <div class="cd-form col-sm-6">
 
@@ -29,15 +30,21 @@ import {Cd} from './cd.model';
 export class EditCdDetailsComponent {
   public cd: Cd;
   public onSubmitEditCd: EventEmitter<Object>;
+
   constructor() {
     this.onSubmitEditCd = new EventEmitter();
   }
+
   editCd(userName: HTMLInputElement, userArtist: HTMLInputElement, userPrice: HTMLInputElement, userGenre: HTMLInputElement) {
     this.onSubmitEditCd.emit({
       name: userName.value,
       artist: userArtist.value,
       price: userPrice.value,
-      genre: userGenre.value
+      genre: userGenre.value,
     });
-  }
+    userName.value = '';
+    userArtist.value = '';
+    userPrice.value = '';
+    userGenre.value = '';
+  };
 }

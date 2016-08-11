@@ -20,8 +20,8 @@ export class AppComponent {
   public cds: Cd[];
   constructor(){
     this.cds = [
-      new Cd("Surprise", "KK.Tuttle", 20, 'K-pop', 0),
-      new Cd("Quantum Diversions", "C#", 25, 'Spoken-word', 1)
+      new Cd("Surprise", "KK.Tuttle", 20, 'pop', 0),
+      new Cd("Quantum Diversions", "C#", 25, 'spokenWord', 1)
     ];
   }
   cdWasSelected(clickedCd: Cd): void {
