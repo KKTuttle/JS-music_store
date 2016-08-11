@@ -17,7 +17,7 @@ import {Cd} from './cd.model';
     <input type ='number' placeholder="price" class="col-sm-8 input-lg" #newPrice>
 
     <label for="genre">Genre</label>
-    <input placeholder="alcohol Content" class="col-sm-8 input-lg" #newGenre>
+    <input placeholder="genre" class="col-sm-8 input-lg" #newGenre>
 
     <button (click)="addCd(newName, newArtist, newPrice, newGenre)" class="btn-success btn-lg add-button">Add</button>
   </div>
@@ -29,7 +29,7 @@ export class NewCdComponent {
   constructor() {
     this.onSubmitNewCd = new EventEmitter();
   }
-  addCd(userName: HTMLInputElement, userArtist: HTMLInputElement, userPrice: HTMLInputElementm, userGenre: HTMLInputElement) {
+  addCd(userName: HTMLInputElement, userArtist: HTMLInputElement, userPrice: HTMLInputElement, userGenre: HTMLInputElement) {
     this.onSubmitNewCd.emit({
       name: userName.value,
       artist: userArtist.value,

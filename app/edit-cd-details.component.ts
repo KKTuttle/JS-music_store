@@ -3,22 +3,41 @@ import {Cd} from './cd.model';
 
 @Component({
   selector: 'edit-cd-details',
-  outputs: ['Cd'],
+  inputs: ['cd'],
   template:`
   <div class="cd-form col-sm-6">
+
+    <h2>Edit {{cd.name}}</h2>
     <label for="name">Name</label>
-    <input class='form-control' placeholder="name" class="col-sm-8 input-lg" [(ngModel)]="Cd.name">
+    <input [ngModel]="cd.name" #newName>"
 
     <label for="artist">Artist</label>
-    <input placeholder="artist" class="col-sm-8 input-lg" [(ngModel)]="Cd.artist">
+    <input [ngModel]="cd.artist" #newArtist>
 
     <label for="price">Price</label>
-    <input type ='number' placeholder="price" class="col-sm-8 input-lg" [(ngModel)]="Cd.price">
+    <input type ='number' [ngModel]="cd.price" #newPrice>
 
     <label for="genre">Genre</label>
-    <input placeholder="alcohol Content" class="col-sm-8 input-lg" [(ngModel)]="Cd.genre">
+    <input [ngModel]="cd.genre" #newGenre>
 
-    <button (click)="addCd(newName, newArtist, newPrice, newGenre)" class="btn-success btn-lg add-button">Add</button>
+    <button (click)='editCd(newName, newArtist, newPrice, newGenre)'>Edit</button>
+
   </div>
   `
 })
+
+export class EditCdDetailsComponent {
+  public cd: Cd;
+  public onSubmitEditCd: EventEmitter<Object>;
+  constructor() {
+    this.onSubmitEditCd = new EventEmitter();
+  }
+  editCd(userName: HTMLInputElement, userArtist: HTMLInputElement, userPrice: HTMLInputElement, userGenre: HTMLInputElement) {
+    this.onSubmitEditCd.emit({
+      name: userName.value,
+      artist: userArtist.value,
+      price: userPrice.value,
+      genre: userGenre.value
+    });
+  }
+}
