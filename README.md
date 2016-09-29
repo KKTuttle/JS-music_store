@@ -42,4 +42,4 @@ _Contact by email: katka.karolcikova@gmail.com_
 License
 -------
 _This software is licensed under the MIT license._<br>
-Copyright (c) 2016 **Stephanie Gurung & Katarina Tuttle**
+Copyright (c) 2016 **Katarina Tuttle**
