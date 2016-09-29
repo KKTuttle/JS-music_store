@@ -1,4 +1,4 @@
-# JS-music_store
+# Music Store
 ## *By Katarina Tuttle*
 
 ##### *A music store app to keep track of inventory.*
